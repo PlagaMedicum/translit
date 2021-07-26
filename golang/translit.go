@@ -164,18 +164,13 @@ func CyrToLat(s string) string {
 			}
 			seq = []rune{'i'}
 		case 'й':
-			if (isWordStart(i, input) || isAfterOneOf(i, input, cyrVowels)) &&
+			if (isWordStart(i, input) || isAfterOneOf(i, input, cyrVowels) || isAfter(i, input, 'ь')) &&
 				isBeforeOneOf(i, input, []rune{'э', 'а', 'о', 'у'}) {
 				seq = []rune{'j', 'i'}
 				break
 			} else if isAfterOneOf(i, input, cyrConsonants) && !isAfter(i, input, 'й') {
-				if isBeforeOneOf(i, input, []rune{'э', 'а', 'о', 'у'}) {
-					seq = []rune{'j', 'x'}
-					break
-				} else if isWordEnding(i, input) {
-					seq = []rune{'j', 'h'}
-					break
-				}
+				seq = []rune{'j', 'h'}
+				break
 			}
 			seq = []rune{'j'}
 		case 'х':
@@ -185,14 +180,20 @@ func CyrToLat(s string) string {
 			}
 			seq = []rune{'h'}
 		case 'ь':
-			if isAfterOneOf(i, input, cyrVowels) ||
-				isBeforeOneOf(i, input, []rune{'э', 'а', 'о', 'у'}) {
-				seq = []rune{'j', 'h'}
+			if isAfterOneOf(i, input, cyrConsonants) && !isAfter(i, input, 'й') {
+				if isBeforeOneOf(i, input, []rune{'э', 'а', 'о', 'у'}) {
+					seq = []rune{'j', 'i'}
+				} else {
+					seq = []rune{'j'}
+				}
 				break
 			}
-			seq = []rune{'j'}
+			seq = []rune{'j', 'h'}
 		case 'ъ':
-			continue
+			if isAfterOneOf(i, input, cyrConsonants) && !isAfter(i, input, 'й') && !isWordEnding(i, input) {
+				continue
+			}
+			seq = []rune{'y', 'h'}
 		case 'э':
 			if isAfterOneOf(i, input, cyrConsonants) && !isAfter(i, input, 'й') {
 				seq = []rune{'e', 'h'}
