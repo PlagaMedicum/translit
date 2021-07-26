@@ -1,8 +1,8 @@
 // Package translit describes rules of the translation
 package translit
 
-var cyrConsonants []rune = []rune{
-	'б', 'в', 'г', 'д', 'ж', 'з', 'й', 'к',
+var cyrJotConsonants []rune = []rune{
+	'б', 'в', 'г', 'д', 'ж', 'з', 'к',
 	'л', 'м', 'н', 'п', 'р', 'с', 'т', 'ф',
 	'х', 'ц', 'ч', 'ш', 'щ',
 }
@@ -145,19 +145,19 @@ func CyrToLat(s string) string {
 		var seq []rune
 		switch r {
 		case 'е':
-			if isAfterOneOf(i, input, cyrConsonants) && !isAfter(i, input, 'й') {
+			if isAfterOneOf(i, input, cyrJotConsonants) {
 				seq = []rune{'e'}
 				break
 			}
 			seq = []rune{'j', 'e'}
 		case 'ё':
-			if isAfterOneOf(i, input, cyrConsonants) && !isAfter(i, input, 'й') {
+			if isAfterOneOf(i, input, cyrJotConsonants) {
 				seq = []rune{'i', 'o'}
 				break
 			}
 			seq = []rune{'j', 'o'}
 		case 'и':
-			if isAfterOneOf(i, input, cyrConsonants) &&
+			if isAfterOneOf(i, input, cyrJotConsonants) &&
 				isBeforeOneOf(i, input, []rune{'а', 'о', 'у'}) {
 				seq = []rune{'j', 'i'}
 				break
@@ -168,7 +168,7 @@ func CyrToLat(s string) string {
 				isBeforeOneOf(i, input, []rune{'э', 'а', 'о', 'у'}) {
 				seq = []rune{'j', 'i'}
 				break
-			} else if isAfterOneOf(i, input, cyrConsonants) && !isAfter(i, input, 'й') {
+			} else if isAfterOneOf(i, input, cyrJotConsonants) {
 				seq = []rune{'j', 'h'}
 				break
 			}
@@ -180,7 +180,7 @@ func CyrToLat(s string) string {
 			}
 			seq = []rune{'h'}
 		case 'ь':
-			if isAfterOneOf(i, input, cyrConsonants) && !isAfter(i, input, 'й') {
+			if isAfterOneOf(i, input, cyrJotConsonants) {
 				if isBeforeOneOf(i, input, []rune{'э', 'а', 'о', 'у'}) {
 					seq = []rune{'j', 'i'}
 				} else {
@@ -190,24 +190,24 @@ func CyrToLat(s string) string {
 			}
 			seq = []rune{'j', 'h'}
 		case 'ъ':
-			if isAfterOneOf(i, input, cyrConsonants) && !isAfter(i, input, 'й') && !isWordEnding(i, input) {
+			if isAfterOneOf(i, input, cyrJotConsonants) && !isWordEnding(i, input) {
 				continue
 			}
 			seq = []rune{'y', 'h'}
 		case 'э':
-			if isAfterOneOf(i, input, cyrConsonants) && !isAfter(i, input, 'й') {
+			if isAfterOneOf(i, input, cyrJotConsonants) {
 				seq = []rune{'e', 'h'}
 				break
 			}
 			seq = []rune{'e'}
 		case 'ю':
-			if isAfterOneOf(i, input, cyrConsonants) && !isAfter(i, input, 'й') {
+			if isAfterOneOf(i, input, cyrJotConsonants) {
 				seq = []rune{'i', 'u'}
 				break
 			}
 			seq = []rune{'j', 'u'}
 		case 'я':
-			if isAfterOneOf(i, input, cyrConsonants) && !isAfter(i, input, 'й') {
+			if isAfterOneOf(i, input, cyrJotConsonants) {
 				seq = []rune{'i', 'a'}
 				break
 			}
