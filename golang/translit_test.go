@@ -61,10 +61,10 @@ SOS.
 "Nasha dolia prekrasna, a volia — krepka!.."
 RVS, GOELRO, VChK...
 
-Nashi marshi vzletajut do samyh nebes!
+Nashi marshi vzletajut do samykh nebes!
 ChTZ, GTO, MTS...
 
-Krovj techiot na beton iz razorvannyh ven.
+Krovj techiot na beton iz razorvannykh ven.
 KPZ, ChSSh, VMN...
 
 Obozhzhionnoj, obuglennoj stanet dusha.

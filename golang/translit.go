@@ -38,7 +38,7 @@ var unambPairs map[rune]string = map[rune]string{
 }
 
 var latModifyableByH []rune = []rune{
-	's', 'h', 'k', 'c', 'z', 'j', 'e',
+	's', 'h', 'k', 'c', 'z', 'j', 'e', 'y',
 }
 
 func capitalize(r rune) rune {
