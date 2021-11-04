@@ -1,5 +1,6 @@
-// Package translit describes rules of the translation
-package translit
+// Package golang is an adaptation of the translit
+// project in go and describes transliteration rules.
+package golang
 
 var cyrJotConsonants = []rune{
 	'б', 'в', 'г', 'д', 'ж', 'з', 'к',

@@ -1,4 +1,4 @@
-package translit
+package golang
 
 import "testing"
 
