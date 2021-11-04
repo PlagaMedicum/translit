@@ -78,6 +78,10 @@ SOS.
 tchk
 
 R. Rozhdestvenskij`,
+		}, {
+			name: "Adjutant",
+			in:   "Адъютант Циолковский ночью на Шхерах сыграл друзьям на пёстром пианино и защитил неионизирующий бульон от покусительств ихтиандров с Йошкар-Олы.",
+			out:  "Adjutant Cjiolkovskij nochjju na Shkherah sygral druzjjam na piostrom pjianino i zashhitil neionizirujushhij bulyon ot pokusiteljstv ihtjiandrov s Jioshkar-Oly.",
 		},
 	}
 
