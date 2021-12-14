@@ -236,3 +236,5 @@ func CyrToLat(s string) string {
 
 	return string(res)
 }
+
+// TODO: from latin to cyrillic
